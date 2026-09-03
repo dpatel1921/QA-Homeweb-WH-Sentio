@@ -1,0 +1,39 @@
+name: Selenium C# Automated Tests
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch: 
+  schedule:
+    # This runs the pipeline at 00:00 UTC every day
+    - cron: '0 0 * * *'
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x' # Update this if your project targets a different .NET version
+
+    - name: Build the project
+      run: dotnet build QA_Homeweb_Automation_3._0.csproj
+
+    - name: Run Selenium tests
+      # Executes the tests and outputs a .trx file for reporting
+      run: dotnet test QA_Homeweb_Automation_3._0.csproj --logger "trx;LogFileName=test_results.trx"
+
+    - name: Upload Test Results
+      if: always() # Uploads the results even if a test fails
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-results
+        path: '**/*.trx'
