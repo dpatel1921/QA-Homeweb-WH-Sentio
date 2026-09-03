@@ -1,0 +1,84 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>QA_Homeweb_Automation_3._0</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="TestCases Publisher\**" />
+    <Compile Remove="TestCases Regression Alumni\**" />
+    <Compile Remove="TestCases RegressionFR\**" />
+    <EmbeddedResource Remove="TestCases Publisher\**" />
+    <EmbeddedResource Remove="TestCases Regression Alumni\**" />
+    <EmbeddedResource Remove="TestCases RegressionFR\**" />
+    <None Remove="TestCases Publisher\**" />
+    <None Remove="TestCases Regression Alumni\**" />
+    <None Remove="TestCases RegressionFR\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="TestCases\HomewebAlumni.cs" />
+    <Compile Remove="TestCases\HomewebAlumniFR.cs" />
+    <Compile Remove="TestCases\HomewebEQ.cs" />
+    <Compile Remove="TestCases\HomewebEQFR.cs" />
+    <Compile Remove="TestCases\HomewebLogin.cs" />
+    <Compile Remove="TestCases\HomewebLoginFR.cs" />
+    <Compile Remove="TestCases\HomewebLSO.cs" />
+    <Compile Remove="TestCases\HomewebLSOFR.cs" />
+    <Compile Remove="TestCases\HomewebPBC.cs" />
+    <Compile Remove="TestCases\HomewebPBCFR.cs" />
+    <Compile Remove="TestCases\HomewebSmoke.cs" />
+    <Compile Remove="TestCases\HomewebSmokeFR.cs" />
+    <Compile Remove="TestCases\Pathfinder.cs" />
+    <Compile Remove="TestCases\PathfinderFR.cs" />
+    <Compile Remove="TestCases\WarriorHealthAdminPortalLoginTests.cs" />
+    <Compile Remove="TestCases\WarriorHealthAdminPortalRegression.cs" />
+    <Compile Remove="TestCases\WarriorHealthAdminPortalRegressionFR.cs" />
+    <Compile Remove="TestCases\WarriorHealthAdminPortalSmokeTests.cs" />
+    <Compile Remove="TestCases\WarriorHealthAdminPortalSmokeTestsFR.cs" />
+    <Compile Remove="TestCases\WarriorHealthAdminPortalSmokeTestsPSO.cs" />
+    <Compile Remove="TestCases\WarriorHealthAdminSmokeTests.cs" />
+    <Compile Remove="TestCases\WarriorHealthSmokeTestsFR.cs" />
+    <Compile Remove="TestCases\WarriorHealthSmokeTestsNegative.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.0" />
+    <PackageReference Include="DotNetSeleniumExtras.PageObjects" Version="3.11.0" />
+    <PackageReference Include="DotNetSeleniumExtras.PageObjects.Core" Version="4.14.1" />
+    <PackageReference Include="DotNetSeleniumExtras.PageObjects.Core.Linq" Version="1.0.0" />
+    <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
+    <PackageReference Include="ExtentReports" Version="4.1.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="NUnit" Version="3.14.0" />
+    <PackageReference Include="NUnit.Analyzers" Version="3.9.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+    <PackageReference Include="Selenium.Support" Version="4.40.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="4.40.0" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="144.0.7559.10900" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="NUnit.Framework" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="TestData\HomewebLoginData.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\TestData.Json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\TestDataAdmin.Json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
