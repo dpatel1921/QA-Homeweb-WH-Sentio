@@ -36,6 +36,7 @@ namespace Homeweb_3._0_Tests.TestCases
         {
             // Create a new instance of ChromeDriver
             test = extent.CreateTest(TestContext.CurrentContext.Test.Name);
+
             driver = new ChromeDriver();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             driver.Manage().Window.Maximize();

@@ -43,6 +43,11 @@ namespace WarriorHealthBeta.TestCases
             test = extent.CreateTest(TestContext.CurrentContext.Test.Name);
          
             var options = new ChromeOptions();
+            options.AddArgument("--headless=new"); // Runs Chrome without a UI
+            options.AddArgument("--no-sandbox"); // Required for Linux environments
+            options.AddArgument("--disable-dev-shm-usage"); // Prevents resource/memory crashes
+
+            IWebDriver driver = new ChromeDriver(options);
             options.AddArgument("start-maximized");
             driver = new ChromeDriver(options);
 
