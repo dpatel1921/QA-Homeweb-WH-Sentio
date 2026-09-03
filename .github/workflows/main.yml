@@ -25,11 +25,11 @@ jobs:
         dotnet-version: '8.0.x' # Update this if your project targets a different .NET version
 
     - name: Build the project
-      run: dotnet build QA_Homeweb_Automation_3._0.csproj
+      run: dotnet build QA-Homeweb-Automation-3.0.csproj
 
     - name: Run Selenium tests
       # Executes the tests and outputs a .trx file for reporting
-      run: dotnet test QA_Homeweb_Automation_3._0.csproj --logger "trx;LogFileName=test_results.trx"
+      run: dotnet test QA-Homeweb-Automation-3.-0.csproj --logger "trx;LogFileName=test_results.trx"
 
     - name: Upload Test Results
       if: always() # Uploads the results even if a test fails
