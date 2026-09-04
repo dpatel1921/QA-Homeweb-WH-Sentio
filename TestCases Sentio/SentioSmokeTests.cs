@@ -3607,7 +3607,7 @@ namespace Homeweb_3._0_Tests.TestCases
         public static IEnumerable<TestCaseData> LoginJsonData()
         {
             string baseDir = AppDomain.CurrentDomain.BaseDirectory;
-            string jsonPath = Path.Combine(baseDir, "TestData", "HomewebLoginData.Json");
+            string jsonPath = Path.Combine(baseDir, "TestData", "TestData.Json");
             string jsonString = File.ReadAllText(jsonPath);
             var dataToLoad = JsonSerializer.Deserialize<List<TestCaseJsonData>>(jsonString);
             var filteredData = dataToLoad.Where(data => !string.IsNullOrEmpty(data.SentioEmail)

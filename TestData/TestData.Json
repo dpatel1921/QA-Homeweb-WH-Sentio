@@ -40,5 +40,12 @@
     "Province": "Ontario"
 
 
+  },
+
+    {
+    "SentioEmail": "uat-r2025-c15@demo.com",
+    "SentioPassword": "Sentio2025!",
+    "SentioUrl": "https://beta.sentioapp.com/en"
+
   }
 ]
