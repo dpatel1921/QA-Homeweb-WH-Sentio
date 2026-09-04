@@ -1,17 +1,18 @@
 ﻿using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
+using Homeweb_3._0_Tests.Objects;
+using Microsoft.Extensions.Options;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
-using SeleniumExtras.PageObjects;
-using System.Text.Json;
 using OpenQA.Selenium.Support.UI;
-using NUnit.Framework;
+using SeleniumExtras.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using AventStack.ExtentReports.Reporter;
-using Homeweb_3._0_Tests.Objects;
+using System.Text.Json;
 
 namespace Homeweb_3._0_Tests.TestCases
 {
@@ -36,8 +37,14 @@ namespace Homeweb_3._0_Tests.TestCases
         {
             // Create a new instance of ChromeDriver
             test = extent.CreateTest(TestContext.CurrentContext.Test.Name);
+            var options = new ChromeOptions();
+            options.AddArgument("--headless=new"); // Runs Chrome without a UI
+            options.AddArgument("--no-sandbox"); // Required for Linux environments
+            options.AddArgument("--disable-dev-shm-usage"); // Prevents resource/memory crashes
 
-            driver = new ChromeDriver();
+            //IWebDriver driver = new ChromeDriver(options);
+            options.AddArgument("start-maximized");
+            driver = new ChromeDriver(options);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             driver.Manage().Window.Maximize();
         }
